@@ -262,43 +262,27 @@ public class Anagrams extends JFrame {
 	}// GEN-LAST:event_aboutMenuItemActionPerformed
 
 	private void nextTrialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextTrialActionPerformed
-        wordIdx = (wordIdx + 1) % wordLibrary.getSize();
-       
+              
         feedbackLabel.setText(" ");
-       
-        //実装中
-        //String[] wordlist = wordLibrary.getWordList();
-        //int[] wordlength = new int[wordlist.length];
-//        for(int i=0;i<wordLibrary.getWordList().length;i++) {
-//        	wordlength[i] = wordlist[i].length();
-//        }
-//        Arrays.sort(wordlength);
-//        String[] wordlist1 = new String[15];
-//        String[] wordlist2 = new String[15];
-//        String[] wordlist3 = new String[15];
-//        for(int i=0;i<15;i++) {
-//        	wordlist1[i] = wordlist[i];
-//        }
-//        for(int i=0;i<15;i++) {
-//        	wordlist2[i] = wordlist[i+15];
-//        }
-//        for(int i=0;i<16;i++) {
-//        	wordlist3[i] = wordlist[i+30];
-//        }
-//        Random rand = new Random();
-//        if(selectLevel.getSelectedItem().equals("Level3")) {
-//        	wordIdx = rand.nextInt(10);
-//        } else {
-//        	wordIdx = rand.nextInt(15);
-//        }
-//        
-//        if(selectLevel.getSelectedItem().equals("Level1")) {
-//        	scrambledWord.setText(wordlist1[wordIdx]);
-//        } else if(selectLevel.getSelectedItem().equals("Level2")) {
-//        	scrambledWord.setText(wordlist2[wordIdx]);
-//        } else if(selectLevel.getSelectedItem().equals("Level3")) {
-//        	scrambledWord.setText(wordlist3[wordIdx]);
-//        }
+
+        
+        //実装済
+        String[] wordlist = wordLibrary.getWordList();
+
+        Arrays.sort(wordlist, Comparator.comparing(String::length));
+        Random rand = new Random();
+
+        
+        if(selectLevel.getSelectedItem().equals("Level 1")) {
+        	wordIdx = rand.nextInt(15);
+        	System.out.println(wordIdx);
+        } else if(selectLevel.getSelectedItem().equals("Level 2")) {
+        	wordIdx = rand.nextInt(15)+15;
+        	System.out.println(wordIdx);
+        } else if(selectLevel.getSelectedItem().equals("Level 3")) {
+        	wordIdx = rand.nextInt(15)+30;
+        	System.out.println(wordIdx);
+        }
         
         scrambledWord.setText(wordLibrary.getScrambledWord(wordIdx));
         guessedWord.setText("");
