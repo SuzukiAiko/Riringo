@@ -37,6 +37,8 @@ import java.awt.Rectangle;
 import java.awt.event.ActionListener;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import java.awt.*;
+import javax.swing.*;
 
 /**
  * About dialog of the Anagram Game application.
@@ -48,12 +50,16 @@ public class About extends JDialog {
         super(parent,true);
         initComponents();
         pack();
+        JFrame frame=new JFrame();
         Rectangle parentBounds = parent.getBounds();
         Dimension size = getSize();
         // Center in the parent
         int x = Math.max(0, parentBounds.x + (parentBounds.width - size.width) / 2);
         int y = Math.max(0, parentBounds.y + (parentBounds.height - size.height) / 2);
         setLocation(new Point(x, y));
+        
+        //frame.getContentPane().setBackground( Color.RED );
+        //frame.setVisible(true);
     }
 
     /** This method is called from within the constructor to
@@ -76,6 +82,8 @@ public class About extends JDialog {
 
         mainPanel.setBorder(new javax.swing.border.EmptyBorder(new java.awt.Insets(11, 11, 12, 12)));
         copyrightTextArea.setBackground(javax.swing.UIManager.getDefaults().getColor("Panel.background"));
+        copyrightTextArea.setBackground(Color.YELLOW);
+        copyrightTextArea.setForeground(Color.RED);
         copyrightTextArea.setColumns(25);
         copyrightTextArea.setEditable(false);
         copyrightTextArea.setLineWrap(true);
