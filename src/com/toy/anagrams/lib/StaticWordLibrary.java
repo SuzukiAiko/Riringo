@@ -203,4 +203,7 @@ final class StaticWordLibrary extends WordLibrary {
         return userGuess.equals(getWord(idx));
     }
 
+    public String[] getWordList() {
+    	return WORD_LIST;
+    }
 }
