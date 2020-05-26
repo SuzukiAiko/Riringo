@@ -344,5 +344,6 @@ public class Anagrams extends JFrame {
 	private javax.swing.JTextField scrambledWord;
 	private javax.swing.JComboBox selectLevel;
 	// End of variables declaration//GEN-END:variables
+	
 
 }
