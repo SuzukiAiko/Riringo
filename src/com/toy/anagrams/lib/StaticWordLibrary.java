@@ -30,12 +30,15 @@
 /* Anagram Game Application */
 
 package com.toy.anagrams.lib;
-
+import java.util.Random;
+import java.util.*;
 /**
  * Implementation of the logic for the Anagram Game application.
  */
 final class StaticWordLibrary extends WordLibrary {
 
+		
+    
     private static final String[] WORD_LIST = {
     	"apple",
         "abstraction",
@@ -83,7 +86,26 @@ final class StaticWordLibrary extends WordLibrary {
         "vertex",
         "unsigned",
         "traditional"};
-
+	   
+	    private String shuffleWord(int idx) {
+	    	ArrayList<Character> hitomoji = new ArrayList<Character>();
+	    	char[] c = WORD_LIST[idx].toCharArray();
+	    	for(int i = 0;i < c.length;i++) {
+	    		hitomoji.add(c[i]);
+	    	}
+	    	Collections.shuffle(hitomoji);
+	    	char[] mixedChar = new char[c.length];
+	    	
+	    	for(int i = 0;i < hitomoji.size();i++) {
+	    		mixedChar[i] = hitomoji.get(i);
+	    	}
+	    	String mixedWord = new String(mixedChar);
+	    	return mixedWord;
+	    }
+	   
+	    	
+	    	
+ /**   	
     private static final String[] SCRAMBLED_WORD_LIST = {
     	"paple",
         "batsartcoin",
@@ -132,6 +154,8 @@ final class StaticWordLibrary extends WordLibrary {
         "nuisngde",
         "rtdatioialn"
     };
+    **/
+    
     
     final static WordLibrary DEFAULT = new StaticWordLibrary();
 
@@ -155,10 +179,12 @@ final class StaticWordLibrary extends WordLibrary {
      * @param idx index of required word
      * @return word at that index in its scrambled form
      */
+    
     public String getScrambledWord(int idx) {
-        return SCRAMBLED_WORD_LIST[idx];
+        return shuffleWord(idx);
     }
 
+    
     /**
      * Gets the number of words in the library.
      * @return the total number of plain/scrambled word pairs in the library
