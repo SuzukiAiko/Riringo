@@ -273,13 +273,13 @@ public class Anagrams extends JFrame {
         Random rand = new Random();
 
         
-        if(selectLevel.getSelectedItem().equals("Level 1")) {
+        if(selectLevel.getSelectedItem().equals("レベル 1")) {
         	wordIdx = rand.nextInt(15);
         	System.out.println(wordIdx);
-        } else if(selectLevel.getSelectedItem().equals("Level 2")) {
+        } else if(selectLevel.getSelectedItem().equals("レベル 2")) {
         	wordIdx = rand.nextInt(15)+15;
         	System.out.println(wordIdx);
-        } else if(selectLevel.getSelectedItem().equals("Level 3")) {
+        } else if(selectLevel.getSelectedItem().equals("レベル 3")) {
         	wordIdx = rand.nextInt(15)+30;
         	System.out.println(wordIdx);
         }
